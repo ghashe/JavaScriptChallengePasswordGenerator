@@ -120,7 +120,7 @@ function generatePassword() {
 }
 
 // ===================================
-
+getPrompts();
 function getPrompts() {
   choiceArr = [];
   characterLength = parseInt(
