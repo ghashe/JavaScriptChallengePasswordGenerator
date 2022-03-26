@@ -87,7 +87,9 @@ header {
   text-align: center;
   cursor: pointer;
 }
-
+#copy {
+  background: rgb(2, 102, 196);
+}
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
@@ -98,6 +100,7 @@ button[disabled] {
 }
 
 #password {
+  color: black;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -112,10 +115,12 @@ button[disabled] {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: 2px solid #4e88ca;
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+  background-color: rgb(192, 188, 188);
+  border-radius: 1%;
 }
 
 @media (max-width: 690px) {
