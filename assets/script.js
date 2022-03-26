@@ -1,6 +1,7 @@
+// Assignment code here
 var minPwLength = 8;
-var choiceArr = [];
-var specialCharArr = [
+var generatedPassword = [];
+var symbolEl = [
   '"',
   "!",
   ",",
@@ -52,8 +53,8 @@ var upperCaseArr = [
   "Y",
   "Z",
 ];
-var numberArr = ["0", "1", "2", "3", "4", "5", "6,", "7", "8", "9"];
-var lowerCaseArr = [
+var numberEl = ["0", "1", "2", "3", "4", "5", "6,", "7", "8", "9"];
+var lowercaseEl = [
   "a",
   "b",
   "c",
@@ -82,18 +83,16 @@ var lowerCaseArr = [
   "z",
 ];
 
-// Assignment code here
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 
-// ==================================
+// =========================================================================
 function writePassword() {
-  var correctPrompts = getPrompts();
+  var seriousOfPrompts = getPrompts();
 
-  if (correctPrompts) {
+  if (seriousOfPrompts) {
     var newPassword = generatePassword();
     var passwordText = document.querySelector("#password");
 
@@ -102,27 +101,31 @@ function writePassword() {
     passwordText.vaue = "";
   }
 }
-// =================================
+// =========================================================================
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// ==================================
+// =========================================================================
 
 function generatePassword() {
   password = "";
 
   for (var i = 0; i < characterLength; i++) {
-    var randomIndex = Math.floor(Math.random() * choiceArr.length);
-    password = password + choiceArr[randomIndex];
+    var randomIndex = Math.floor(Math.random() * generatedPassword.length);
+    password = password + generatedPassword[randomIndex];
   }
   return password;
 }
 
-// ===================================
-getPrompts();
+// =========================================================================
+
+// Wellcome message
+var wellcomeAlert = window.alert(
+  "Welcome to Random Password Generator App! Please click OK to get started!"
+);
 function getPrompts() {
-  choiceArr = [];
+  generatedPassword = [];
   characterLength = parseInt(
     window.prompt(
       "How long would you like your password to be? Enter a valid number between 8 and 128!"
@@ -139,23 +142,23 @@ function getPrompts() {
   if (
     confirm("Would you like to include lowercase letters in your password?")
   ) {
-    choiceArr = choiceArr.concat(lowerCaseArr);
+    generatedPassword = generatedPassword.concat(lowercaseEl);
   }
 
   if (
     confirm("Would you like to include uppercase letters in your password?")
   ) {
-    choiceArr = choiceArr.concat(upperCaseArr);
+    generatedPassword = generatedPassword.concat(upperCaseArr);
   }
 
   if (confirm("Would you like to include numbers in your password?")) {
-    choiceArr = choiceArr.concat(numberArr);
+    generatedPassword = generatedPassword.concat(numberEl);
   }
 
   if (
     confirm("Would you like to include special chracters in your password?")
   ) {
-    choiceArr = choiceArr.concat(specialCharArr);
+    generatedPassword = generatedPassword.concat(symbolEl);
   }
   return true;
 }
